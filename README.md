@@ -2,7 +2,7 @@
 
 Serves jpegs from pdfs like a tornado
 
-A copy of <https://github.com/demarque/taz> but in Clojure. A learning expirement.
+A copy of <https://github.com/demarque/taz>, but in Clojure. A learning experiment.
 
 ## Usage
 
