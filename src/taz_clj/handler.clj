@@ -4,13 +4,12 @@
         [compojure.core :only [defroutes GET]]
         [compojure.response :only [Renderable render]]
         org.httpkit.server)
-  (:import [java.awt.image BufferedImage])
   (:require [ring.util.response]
             [taz-clj.converter :as converter]
             [taz-clj.renderer :as renderer]))
 
 (extend-protocol Renderable
-  BufferedImage
+  java.awt.image.BufferedImage
   (render [image _]
     (renderer/extend-renderable image)))
 
