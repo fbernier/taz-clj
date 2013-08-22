@@ -1,8 +1,7 @@
 (ns taz-clj.converter
   (:import [org.apache.pdfbox.pdmodel PDDocument]
            [org.apache.pdfbox.pdmodel PDPage]
-           [org.apache.pdfbox.pdmodel.font PDFont]
-           [org.apache.pdfbox.util PDFImageWriter]))
+           [org.apache.pdfbox.pdmodel.font PDFont]))
 
 (defn convert-to-image [filename & [page-number]]
   (if-let [page-number (if-not (nil? page-number) (dec (Integer/parseInt page-number)))]
