@@ -1,15 +1,13 @@
 (ns taz-clj.renderer
-  (:import [org.apache.pdfbox.pdmodel PDDocument]
-           [org.apache.pdfbox.pdmodel PDPage]
-           [org.apache.pdfbox.pdmodel.font PDFont]
-           [org.apache.pdfbox.util PDFImageWriter]))
+  (:import [javax.imageio ImageIO]
+           [java.io ByteArrayOutputStream ByteArrayInputStream]
+           [java.awt.image BufferedImage]))
 
-(defn convert-to-image [filename & [page-number]]
-  (if-let [page-number (if-not (nil? page-number) (dec (Integer/parseInt page-number)))]
-    (try
-      (with-open [document (PDDocument/load (str (. (java.io.File. ".") getCanonicalPath) "/" filename ".pdf"))]
-        (if (<= page-number (dec (.getNumberOfPages document)))
-          (let [^PDPage page (.. document getDocumentCatalog getAllPages (get page-number))
-                ^BufferedImage image (.convertToImage page)]
-            image)))
-      (catch java.io.FileNotFoundException e))))
+(defn render-image [^BufferedImage image]
+  (with-open [out (ByteArrayOutputStream.)]
+    (do (ImageIO/write image "jpeg" out)
+        (ByteArrayInputStream. (.toByteArray out)))))
+
+(defn extend-renderable [^BufferedImage image]
+  (-> (ring.util.response/response (render-image image))
+      (ring.util.response/content-type "image/jpeg")))
