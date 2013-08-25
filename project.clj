@@ -1,7 +1,7 @@
 (defproject taz-clj "0.1.0-SNAPSHOT"
   :description "Serves jpegs from pdfs like a tornado"
   :repositories {"apache-releases" "https://repository.apache.org/content/repositories/releases/"}
-  :url "http://example.com/FIXME"
+  :url "https://github.com/fbernier/taz-clj"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.5.1"]
