@@ -18,5 +18,5 @@
        (converter/convert-to-image filename
                                    (re-matches #"[1-9]+" (str page)))))
 
-(defn start []
-  (run-server (api #'all-routes) {:port 8080}))
+(defn start [port]
+  (run-server (api #'all-routes) {:port port}))
