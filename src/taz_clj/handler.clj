@@ -16,7 +16,7 @@
 (defroutes all-routes
   (GET "/:filename.pdf" [filename page]
        (converter/convert-to-image filename
-                                   (re-matches #"[1-9]+" (str page)))))
+                                   (re-matches #"[1-9]\d*" (str page)))))
 
 (defn start [port]
   (run-server (api #'all-routes) {:port port}))
