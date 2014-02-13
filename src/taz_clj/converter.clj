@@ -1,7 +1,7 @@
 (ns taz-clj.converter
-
   (:require [taz-clj.util :as util])
-  (:import [org.apache.pdfbox.pdmodel PDDocument]
+  (:import [java.awt.image BufferedImage]
+           [org.apache.pdfbox.pdmodel PDDocument]
            [org.apache.pdfbox.pdmodel PDPage]
            [org.apache.pdfbox.pdmodel.font PDFont]
            [org.apache.pdfbox.util RenderUtil]))

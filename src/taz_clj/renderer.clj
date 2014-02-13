@@ -1,7 +1,8 @@
 (ns taz-clj.renderer
   (:import [javax.imageio ImageIO]
            [java.io ByteArrayOutputStream ByteArrayInputStream]
-           [java.awt.image BufferedImage]))
+           [java.awt.image BufferedImage])
+  (:require [ring.util.response]))
 
 (defn render-image [^BufferedImage image]
   (with-open [out (ByteArrayOutputStream.)]

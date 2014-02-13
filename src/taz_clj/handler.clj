@@ -3,9 +3,8 @@
         [compojure.handler :only [api]]
         [compojure.core :only [defroutes GET]]
         [compojure.response :only [Renderable render]]
-        org.httpkit.server)
-  (:require [ring.util.response]
-            [taz-clj.converter :as converter]
+        [org.httpkit.server :only [run-server]])
+  (:require [taz-clj.converter :as converter]
             [taz-clj.renderer :as renderer]))
 
 (extend-protocol Renderable
