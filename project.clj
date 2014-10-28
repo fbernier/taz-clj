@@ -6,9 +6,9 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.apache.pdfbox/pdfbox "2.0.0-SNAPSHOT"]
-                 [compojure "1.1.6"]
-                 [http-kit "2.1.18"]
-                 [ring/ring-core "1.2.2"]
+                 [compojure "1.2.1"]
+                 [http-kit "2.1.19"]
+                 [ring/ring-core "1.3.1"]
                  [javax.servlet/servlet-api "2.5"]
                  [org.clojure/tools.cli "0.3.1"]]
   :jvm-opts ^:replace []
