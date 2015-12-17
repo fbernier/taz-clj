@@ -8,7 +8,7 @@
 (defn convert-to-image [filename & [page-number]]
   (if-let [page-number (if-not (nil? page-number) (dec (Integer/parseInt page-number)))]
     (try
-      (with-open [document (PDDocument/load (str (.getCanonicalPath (java.io.File. #^String (:data-dir util/*cli-args*))) "/" filename ".pdf"))]
+      (with-open [document (PDDocument/load (clojure.java.io/file (str (.getCanonicalPath (java.io.File. #^String (:data-dir util/*cli-args*))) "/" filename ".pdf")))]
         (if (<= page-number (dec (.getNumberOfPages document)))
           (let [^PDFRenderer renderer (PDFRenderer. document)]
             ^BufferedImage (. renderer renderImage page-number 2))))
